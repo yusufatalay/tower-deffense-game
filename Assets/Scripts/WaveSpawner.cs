@@ -8,6 +8,7 @@ public class WaveSpawner : MonoBehaviour
     public Transform spawnPoint;
     public float timeBetweenWaves = 5f;//time needed to spawn other waves
     public Text waveCountdownText;
+    public GameManager gameManager;
     private float countdown = 2f;  //initially: tiem requires to spawn the first wave
 
     private int waveIndex= 0;
@@ -35,6 +36,8 @@ public class WaveSpawner : MonoBehaviour
         
         PlayerStats.Rounds++;
         Wave wave = waves[waveIndex];
+
+        EnemiesAlive = wave.count;
         for (int i = 0; i < wave.count; i++)
         {
             SpawnEnemy(wave.enemy);
@@ -45,7 +48,7 @@ public class WaveSpawner : MonoBehaviour
 
         if (waveIndex == waves.Length)
         {
-            Debug.Log("LEVEL COMPLETED!!!!!!!!!!!");
+            gameManager.WinLevel();
             this.enabled = false;  //if there is no more wave to spawn this line of code will disable "this" "WaveSpawner" script
         }
 

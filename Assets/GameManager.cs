@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     public static bool GameIsOver;
     public GameObject gameOverUI;
 
+    public string nextLevel = "Level02";
+    public int levelToUnlock = 2;
+    public SceneFader sceneFader;
     void Start()
     {
         GameIsOver = false;    
@@ -31,5 +34,12 @@ public class GameManager : MonoBehaviour
         GameIsOver = true;
         gameOverUI.SetActive(true);
 
+    }
+
+    public void WinLevel()
+    {
+        Debug.Log("LEVEL COMPLETED!!!!!!!!!!!");
+        PlayerPrefs.SetInt("levelReached", levelToUnlock);
+        sceneFader.FadeTo(nextLevel);
     }
 }
