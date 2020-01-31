@@ -11499,9 +11499,9 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: e07841a2e1d6d3341b384b97d5a98635, type: 2}
-  - {fileID: 2100000, guid: 434e949037ae1934a86befdf1fbf3e95, type: 2}
+  - {fileID: 2100000, guid: 8abdf96d306c66a40857e7675379b0e9, type: 2}
+  - {fileID: 2100000, guid: 8abdf96d306c66a40857e7675379b0e9, type: 2}
   - {fileID: 2100000, guid: e07841a2e1d6d3341b384b97d5a98635, type: 2}
-  - {fileID: 2100000, guid: 145b688c48ac22e42ad44cda4545ed3b, type: 2}
   - {fileID: 2100000, guid: e07841a2e1d6d3341b384b97d5a98635, type: 2}
   - {fileID: 2100000, guid: b3e01b4103934e64980fe4d9b633f52c, type: 2}
   m_StaticBatchInfo:
@@ -14118,10 +14118,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8107a306107dce0408261b4fe0ced99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 7688412014546795344, guid: 7eb65ceb9a6d7184691bcd3289b9b458,
-    type: 3}
+  waves:
+  - enemy: {fileID: 5679039793867303838, guid: 7eb65ceb9a6d7184691bcd3289b9b458, type: 3}
+    count: 1
+    rate: 2
+  - enemy: {fileID: 5679039793867303838, guid: 7eb65ceb9a6d7184691bcd3289b9b458, type: 3}
+    count: 2
+    rate: 2
+  - enemy: {fileID: 5679039793867303838, guid: 7eb65ceb9a6d7184691bcd3289b9b458, type: 3}
+    count: 5
+    rate: 2
+  - enemy: {fileID: 5679039793867303838, guid: 4df05c02ca3c32f46891fef9adf9ad7a, type: 3}
+    count: 3
+    rate: 1
+  - enemy: {fileID: 5679039793867303838, guid: 619c71006768fcc41bcc689c2ade5f75, type: 3}
+    count: 10
+    rate: 3
   spawnPoint: {fileID: 801152097}
-  timeBetweenWaves: 10
+  timeBetweenWaves: 2
   waveCountdownText: {fileID: 249971021}
 --- !u!4 &969516898
 Transform:
