@@ -3,30 +3,49 @@ using System.Collections;
 using UnityEngine.UI;
 public class WaveSpawner : MonoBehaviour
 {
-    public static int EnemiesAlive = 0;
+    public static int EnemiesAlive = 0 ;
+   
     public Wave[] waves; 
+    
     public Transform spawnPoint;
+    
     public float timeBetweenWaves = 5f;//time needed to spawn other waves
+    private float countdown = 2f;  //initially: time requires to spawn the first wave
+    
     public Text waveCountdownText;
+    
     public GameManager gameManager;
-    private float countdown = 2f;  //initially: tiem requires to spawn the first wave
+    
 
     private int waveIndex= 0;
+    
+
+
     void Update()
     {
         if (EnemiesAlive>0)
         {
             return;
         }
-        if (countdown<=0f)
+        if (waveIndex==waves.Length)
+        {
+            gameManager.WinLevel();
+            this.enabled = false;
+        }
+        if (countdown <= 0f && EnemiesAlive == 0)
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
-            return; 
+            return;
         }
-        countdown -= Time.deltaTime;
 
+        countdown -= Time.deltaTime;
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
+        
+      
+        
+
+       
 
         waveCountdownText.text = string.Format("{0:00.00}", countdown);
     }
@@ -46,17 +65,11 @@ public class WaveSpawner : MonoBehaviour
         }
         waveIndex++;
 
-        if (waveIndex == waves.Length)
-        {
-            gameManager.WinLevel();
-            this.enabled = false;  //if there is no more wave to spawn this line of code will disable "this" "WaveSpawner" script
-        }
-
     }
     void SpawnEnemy(GameObject enemy)
     {
         Instantiate(enemy, spawnPoint.position,spawnPoint.rotation);
-        EnemiesAlive++;
+        
     }
 
 }

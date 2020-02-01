@@ -54,6 +54,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -157,6 +158,8 @@ MonoBehaviour:
   range: 15
   bulletPrefab: {fileID: 4930128854485584380, guid: b2c8221fe7113a24cb4bb97e852b5bc1,
     type: 3}
+  muzzleFlash: {fileID: 1206754700036523558, guid: 26d6a537568af224c837694dc536a8a5,
+    type: 3}
   fireRate: 1
   useLaser: 0
   slowPct: 0.5
@@ -223,6 +226,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
